@@ -3,7 +3,7 @@
 #####################
 
 # Set the base image
-FROM    alpine
+FROM    alpine:3.8
 
 # File Author / Maintainer
 MAINTAINER Toon Lamberigts and Tomas Vercautter
@@ -11,7 +11,7 @@ MAINTAINER Toon Lamberigts and Tomas Vercautter
 ARG PHORONIX_VERSION
 
 # Install dependencies
-RUN apk update && apk add --no-cache make gcc g++ libtool linux-headers perl pcre-dev php5 php5-dom php5-zip php5-json wget
+RUN apk update && apk add --no-cache make gcc g++ libtool linux-headers perl pcre-dev php5 php5-dom php5-zip php5-json wget expat-dev
 
 # Download  & extract Phoronix package
 RUN wget https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v${PHORONIX_VERSION}.tar.gz -O phoronix-test-suite.tar.gz
